@@ -1,0 +1,30 @@
+<html> 
+	<head>
+		<script type="text/javascript">
+			function aumentar()  {
+			  var input = document.getElementById("textoCrescente");
+			  
+			  //tamanho do campo
+			  var tamanhoCampo = input.size;
+			  
+			  var texto = input.value;
+			  
+			  //tamanho de um string
+			  var tamanhoTexto = texto.length;
+			  
+			  
+			  //Para ficar sempre com um espaço a mais
+			  if(tamanhoTexto - 1 >= tamanhoCampo){
+			     input.size = tamanhoCampo + 1;
+			  }
+			}
+		</script>
+	</head>
+	<body>
+		<h2>Digite algo para aumentar:</h2>
+		<br/>
+		<form>
+		<input id="textoCrescente" type="text"  onkeypress="aumentar()" size=3="" />
+		</form>
+	</body>
+</html>

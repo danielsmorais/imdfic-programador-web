@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Estudando JavaScript</title>
+
+<script type="text/javascript">
+function Livro(tituloPar, autorPar) {
+	   this.titulo = tituloPar;
+	   this.autor = autorPar;
+	   this.getDescricao = function(){ return this.titulo + " - " + this.autor} // método
+	   this.adicionarAutor = function(novoAutor){ this.autor = this.autor + ", " + novoAutor}
+}
+</script>
+
+</head>
+<body>
+
+<script>
+	var meuLivro = new Livro("Harry Potter","J.K. Rowling");
+	var meuLivro2 = new Livro("As Crônicas de Nárnia","C.S. Lewis");
+//	alert(meuLivro.titulo);
+//	alert(meuLivro2.titulo);
+	meuLivro.adicionarAutor("XXXX");
+	alert(meuLivro.getDescricao());
+	alert(meuLivro2.getDescricao());
+</script>
+
+</body>
+</html>

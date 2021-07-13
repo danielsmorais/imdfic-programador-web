@@ -1,0 +1,18 @@
+<html>
+ 	<head>
+    <script type="text/javascript">
+		function aumentar(posicao){
+			document.images[posicao].width=300;
+			document.images[posicao].height=300;
+		}
+		function diminuir(posicao){
+			document.images[posicao].width=150;
+			document.images[posicao].height=150;
+		}
+    </script>
+	</head>
+	<body>
+	    <img id="imagem1" border="0" src="img1.png" width="150" height="150" onmouseover="aumentar(0)" onmouseout="diminuir(0)"/>
+	    <img id="imagem2" border="0" src="img2.png" width="150" height="150" onmouseover="aumentar(1)" onmouseout="diminuir(1)"/>
+  	</body>
+</html>
