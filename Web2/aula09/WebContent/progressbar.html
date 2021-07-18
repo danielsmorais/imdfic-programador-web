@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Título</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.3.js"></script>
+<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
+
+<script>
+
+	$(document).ready(function (){
+
+	    $("#pb1").progressbar();	
+	    
+	    $("#s1").slider({
+	    	min:0,
+	    	step:1,
+	    	max:100,
+            slide: function( event, ui ) {
+                $( "#pb1" ).progressbar( { value: ui.value} );
+            }
+	    });
+	});	
+</script>
+</head>
+<body>
+
+<div id="pb1"></div>
+
+</br>
+
+<div id="s1"></div>
+
+</body>
+</html>

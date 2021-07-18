@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Cadastro</title>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.3.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
+	<script type="text/javascript" src="datepicker-pt-BR.js"></script>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"/>
+
+	<script type="text/javascript">
+		$(document).ready(function (){
+	    	$('#nome').change(atualizaProgresso); // quando o valor muda (só executa quando o campo perde o foco)
+	    	$("#nome").keyup(atualizaProgresso); // quando o usuário terimna de pressionar uma tecla (não precisa perder o foco do campo)
+	    	$('#data_de_nascimento').change(atualizaProgresso);
+	    	$('#cidade').change(atualizaProgresso);  // quando o valor muda (só executa quando o campo perde o foco)
+	    	$("#cidade").keyup(atualizaProgresso); // quando o usuário terimna de pressionar uma tecla (não precisa perder o foco do campo)
+	    	
+	    	$('#data_de_nascimento').datepicker($.datepicker.regional['pt-BR']);
+	    	
+			var cidades = [
+			       "Natal", "Caicó","Fortaleza", "Mossoró", "São Paulo"                               
+			];
+			
+			$("#cidade").autocomplete({
+			      source: cidades
+			});
+	   	
+	    	$('#progresso').progressbar();
+		});
+		
+	    
+	    function atualizaProgresso() {
+	    	var valor = 0;
+	    	if ($('#nome').val().length > 0) {
+	    		valor += 33; // Adiciona 33% pois o nome está preenchido
+	    	}
+	    	if ($('#data_de_nascimento').val().length > 0) {
+	    		valor += 33; // Adiciona 33% pois o data de nasciment está preenchida
+	    	}
+	    	if ($('#cidade').val().length > 0) {
+	    		valor += 34; // Adiciona 34% (para completar 100%) pois a cidade está preenchida
+	    	}
+	    	
+	    	$('#progresso').progressbar({ value: valor });
+	    }
+    
+	</script>
+	<style>	
+		body{
+			padding-top: 25px;
+		}	
+	</style>
+	
+</head>
+<body>
+
+<div class="container">
+<h1>Cadastro</h1>
+	<form>
+		<div class="form-group">
+			<label for="nome">Nome:</label>
+			<input class="form-control" type="text" id="nome" name="nome"/>
+		</div>
+		<div class="form-group">
+			<label for="data_de_nascimento">Data de nascimento:</label>
+			<input type="text" class="form-control" id="data_de_nascimento" name="data_de_nascimento"/>
+		</div>
+		<div class="form-group">
+			<label for="cidade">Cidade:</label>
+			<input type="text" class="form-control" id="cidade" name="cidade"/>
+		</div>
+		<div class="form-group">
+			Progresso:
+			<div id="progresso"/>
+		</div>
+		<div class="form-group">
+			<input class="btn btn-primary" type="submit" value="Enviar"/>
+		</div>
+	</form>
+</div>
+
+</body>
+</html>

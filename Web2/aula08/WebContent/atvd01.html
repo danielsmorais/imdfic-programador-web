@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Aula 08 - Atividade 01</title>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.3.js"></script>
+	<script type="text/javascript">
+	$(document).ready(onLoad);
+	var paragrafo_exibido = true;
+	
+    function onLoad() {
+		$('#b1').click(efeito1);
+		$('#b2').click(efeito2);
+    }
+    
+    function efeito1() {
+    	if (paragrafo_exibido) {
+    		$('#p1').fadeOut();
+    		paragrafo_exibido = false;
+    	} else {
+    		$('#p1').fadeIn();
+    		paragrafo_exibido = true;
+    	}
+    }
+    
+	function efeito2() {
+    	if (paragrafo_exibido) {
+    		$('#p1').slideUp();
+    		paragrafo_exibido = false;
+    	} else {
+    		$('#p1').slideDown();
+    		paragrafo_exibido = true;
+    	}
+    }
+	</script>
+</head>
+<body>
+<input type="button" id="b1" value="efeito1" />
+<input type="button" id="b2" value="efeito2" />
+<p id="p1" >Oi, sou um parágrafo</p>
+</body>
+</html>
